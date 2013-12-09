@@ -1,0 +1,37 @@
+.row
+  .col-offset-2.col-md-4
+    = simple_form_for(@domain) do |f|
+      = f.error_notification
+      .form-inputs
+        = f.input :domain_name
+        = f.input :nameserver_first
+        = f.input :nameserver_second
+      = f.simple_fields_for :whois_contacts do |wc|
+        = wc.input :first_name, input_html: { placeholder: "John" }
+        = wc.input :last_name, input_html: { placeholder: "Doe" }
+        = wc.input :street, input_html: { placeholder: "Main street" }
+        = wc.input :number, input_html: { placeholder: "1" }
+        = wc.input :postal_code, input_html: { placeholder: "1234AB" }
+        = wc.input :city, input_html: { placeholder: "Amsterdam" }
+        .form-group.select.required.domain_country_country_name
+          %label.select.required.form-label{:for => "domain_country_country_name"}
+            %abbr{:title => "required"} *
+            Country
+          .controls
+            = wc.collection_select :country_id, Country.all, :id, :name, {}, {:class=>'select required form-control'}
+        = wc.input :phone_number, input_html: { placeholder: "0612345678" }
+        = wc.input :email_address, input_html: { placeholder: "doe@johndoe.com" }
+        %h3 Company information
+        = wc.input :company_name, hint: 'If you have a company, please enter the company name.', input_html: { placeholder: "Doe Inc." }
+        .form-group.select.required.domain_company_company_name
+          %label.select.required.form-label{:for => "domain_company_companyname"}
+            %abbr{:title => "required"} *
+            Company
+          .controls
+            = wc.collection_select :company_type_id, CompanyType.all, :id, :name, {}, {:class=>'select required form-control'}
+
+
+
+
+        .form-actions
+          = f.button :submit

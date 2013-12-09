@@ -1,0 +1,41 @@
+%h1 Listing whois_contacts
+
+%table
+  %tr
+    %th Domain
+    %th First name
+    %th Last name
+    %th Street
+    %th Number
+    %th Postal code
+    %th City
+    %th Country
+    %th Phone number
+    %th Email address
+    %th Company name
+    %th Company type
+    %th
+    %th
+    %th
+
+  - @whois_contacts.each do |whois_contact|
+    %tr
+      %td= whois_contact.domain
+      %td= whois_contact.first_name
+      %td= whois_contact.last_name
+      %td= whois_contact.street
+      %td= whois_contact.number
+      %td= whois_contact.postal_code
+      %td= whois_contact.city
+      %td= whois_contact.country
+      %td= whois_contact.phone_number
+      %td= whois_contact.email_address
+      %td= whois_contact.company_name
+      %td= whois_contact.company_type
+      %td= link_to 'Show', whois_contact
+      %td= link_to 'Edit', edit_whois_contact_path(whois_contact)
+      %td= link_to 'Destroy', whois_contact, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Whois contact', new_whois_contact_path

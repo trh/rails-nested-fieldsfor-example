@@ -1,0 +1,42 @@
+%p#notice= notice
+
+%p
+  %b Domain:
+  = @whois_contact.domain
+%p
+  %b First name:
+  = @whois_contact.first_name
+%p
+  %b Last name:
+  = @whois_contact.last_name
+%p
+  %b Street:
+  = @whois_contact.street
+%p
+  %b Number:
+  = @whois_contact.number
+%p
+  %b Postal code:
+  = @whois_contact.postal_code
+%p
+  %b City:
+  = @whois_contact.city
+%p
+  %b Country:
+  = @whois_contact.country
+%p
+  %b Phone number:
+  = @whois_contact.phone_number
+%p
+  %b Email address:
+  = @whois_contact.email_address
+%p
+  %b Company name:
+  = @whois_contact.company_name
+%p
+  %b Company type:
+  = @whois_contact.company_type
+
+= link_to 'Edit', edit_whois_contact_path(@whois_contact)
+\|
+= link_to 'Back', whois_contacts_path

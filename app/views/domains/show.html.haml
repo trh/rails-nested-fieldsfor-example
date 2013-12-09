@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Domain name:
+  = @domain.domain_name
+%p
+  %b Nameserver first:
+  = @domain.nameserver_first
+%p
+  %b Nameserver second:
+  = @domain.nameserver_second
+
+= link_to 'Edit', edit_domain_path(@domain)
+\|
+= link_to 'Back', domains_path
